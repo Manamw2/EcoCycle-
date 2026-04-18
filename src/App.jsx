@@ -3,14 +3,21 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from
 import { Home, PlusSquare, ShoppingBag, Award, User, ChevronRight, Menu, Scan, Flame, Sprout, Leaf, ArrowRight, Camera, CheckCircle, XCircle } from 'lucide-react';
 import './index.css';
 
+import logoImg from './assets/اللوجو.jpg';
+import samadImg from './assets/السماد.png';
+import gasImg from './assets/الغاز.png';
+import wasteImg from './assets/المخلفات.png';
+import flowerImg from './assets/براعم ازهار.png';
+import grainImg from './assets/حبوب.jpg';
+
 // 1. Splash Screen
 const SplashScreen = () => {
   const navigate = useNavigate();
   return (
     <div className="page-container" style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: 'linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%)' }}>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ background: 'var(--primary)', padding: '24px', borderRadius: '50%', marginBottom: '24px', boxShadow: 'var(--shadow-md)' }}>
-          <Leaf color="white" size={64} />
+        <div style={{ background: 'white', padding: '12px', borderRadius: '50%', marginBottom: '24px', boxShadow: 'var(--shadow-md)', width: '120px', height: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
+          <img src={logoImg} alt="EcoCycle Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
         <h1 style={{ color: 'var(--primary-dark)', fontSize: '32px', fontWeight: '800', marginBottom: '12px' }}>EcoCycle</h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '18px', textAlign: 'center', padding: '0 32px' }}>تحويل المخلفات إلى طاقة وحياة</p>
@@ -28,6 +35,7 @@ const LoginScreen = () => {
   return (
     <div className="page-container" style={{ padding: '24px', backgroundColor: '#fff', height: '100vh' }}>
       <div style={{ marginTop: '40px', marginBottom: '40px', textAlign: 'center' }}>
+        <img src={logoImg} alt="Logo" style={{ width: '80px', height: '80px', borderRadius: '50%', marginBottom: '16px', objectFit: 'contain', background: 'white', boxShadow: 'var(--shadow-md)' }} />
         <h2 style={{ fontSize: '28px', color: 'var(--primary-dark)', fontWeight: '700' }}>مرحباً بك</h2>
         <p style={{ color: 'var(--text-muted)' }}>سجل للانضمام إلى مجتمع EcoCycle</p>
       </div>
@@ -96,7 +104,10 @@ const HomeScreen = () => {
         {/* Top Section */}
         <div style={{ background: 'var(--primary)', padding: '40px 24px 80px', borderBottomLeftRadius: '32px', borderBottomRightRadius: '32px', color: 'white' }}>
           <div className="flex justify-between align-center" style={{ marginBottom: '24px' }}>
-            <h2 style={{ fontSize: '24px', margin: 0 }}>مرحباً يا ياسمين 👋</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img src={logoImg} alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'contain', background: 'white' }} />
+              <h2 style={{ fontSize: '20px', margin: 0 }}>مرحباً يا ياسمين 👋</h2>
+            </div>
             <button style={{ background: 'rgba(255,255,255,0.2)', border: 'none', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', cursor: 'pointer' }}>
               <Menu size={20} />
             </button>
@@ -169,7 +180,7 @@ const ScanScreen = () => {
       </div>
       <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div style={{ background: '#000', borderRadius: '24px', flex: 1, marginBottom: '24px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src="https://images.unsplash.com/photo-1628151015968-3a4429e9ef04?q=80&w=600&auto=format&fit=crop" alt="Camera feed" style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
+          <img src={wasteImg} alt="Camera feed" style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
           <div style={{ position: 'absolute', width: '200px', height: '200px', border: '3px dashed var(--primary)', borderRadius: '16px' }}></div>
         </div>
         
@@ -424,7 +435,9 @@ const MarketScreen = () => {
         <div className="grid-2">
           {/* Item 1 */}
           <div className="card" style={{ padding: '12px' }}>
-            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', display: 'flex', justifyContent:'center', alignItems:'center' }}>🌱</div>
+            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', overflow: 'hidden' }}>
+              <img src={grainImg} alt="بذور" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h4 className="mb-2" style={{ fontSize: '14px' }}>بذور طماطم عضوية</h4>
             <div className="flex justify-between align-center mb-2">
               <span className="font-bold text-success" style={{ fontSize: '14px' }}>15 جنيه</span>
@@ -433,7 +446,9 @@ const MarketScreen = () => {
           </div>
           {/* Item 2 */}
           <div className="card" style={{ padding: '12px' }}>
-            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', display: 'flex', justifyContent:'center', alignItems:'center' }}>🪴</div>
+            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', overflow: 'hidden' }}>
+              <img src={flowerImg} alt="نبتة" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h4 className="mb-2" style={{ fontSize: '14px' }}>نبتة زينة داخلية</h4>
             <div className="flex justify-between align-center mb-2">
               <span className="font-bold text-warning" style={{ fontSize: '14px' }}>150 نقطة</span>
@@ -442,7 +457,9 @@ const MarketScreen = () => {
           </div>
           {/* Item 3 */}
           <div className="card" style={{ padding: '12px' }}>
-            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', display: 'flex', justifyContent:'center', alignItems:'center' }}>📦</div>
+            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', overflow: 'hidden' }}>
+              <img src={samadImg} alt="سماد" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h4 className="mb-2" style={{ fontSize: '14px' }}>سماد عضوي (5 كجم)</h4>
             <div className="flex justify-between align-center mb-2">
               <span className="font-bold text-success" style={{ fontSize: '14px' }}>100 جنيه</span>
@@ -451,7 +468,9 @@ const MarketScreen = () => {
           </div>
           {/* Item 4 */}
           <div className="card" style={{ padding: '12px' }}>
-            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', display: 'flex', justifyContent:'center', alignItems:'center' }}>🔥</div>
+            <div style={{ height: '100px', background: '#e0e0e0', borderRadius: '8px', marginBottom: '12px', overflow: 'hidden' }}>
+              <img src={gasImg} alt="غاز" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h4 className="mb-2" style={{ fontSize: '14px' }}>غاز حيوي (2 م³)</h4>
             <div className="flex justify-between align-center mb-2">
               <span className="font-bold text-success" style={{ fontSize: '14px' }}>90 جنيه</span>
@@ -520,6 +539,10 @@ const InstructionsScreen = () => {
       <div className="page-container" style={{ padding: '24px' }}>
         <h2 className="screen-title" style={{ textAlign: 'right', marginBottom: '24px' }}>التعليمات ودليل الاستخدام</h2>
         
+        <div style={{ marginBottom: '24px', borderRadius: '16px', overflow: 'hidden', height: '150px' }}>
+          <img src={wasteImg} alt="مخلفات" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+
         <div className="grid-2 mb-4">
           <div className="card" style={{ background: 'var(--primary-light)' }}>
             <h3 className="text-success mb-2 text-center">✔ مسموح</h3>
