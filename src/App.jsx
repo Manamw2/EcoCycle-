@@ -9,6 +9,7 @@ import gasImg from './assets/الغاز.png';
 import wasteImg from './assets/المخلفات.png';
 import flowerImg from './assets/براعم ازهار.png';
 import grainImg from './assets/حبوب.jpg';
+import otherWasteImg from './assets/مخلفات اخري.jpg';
 
 // 1. Splash Screen
 const SplashScreen = () => {
@@ -180,10 +181,10 @@ const ScanScreen = () => {
       </div>
       <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div style={{ background: '#000', borderRadius: '24px', flex: 1, marginBottom: '24px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src={wasteImg} alt="Camera feed" style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
+          <img src={otherWasteImg} alt="Camera feed" style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
           <div style={{ position: 'absolute', width: '200px', height: '200px', border: '3px dashed var(--primary)', borderRadius: '16px' }}></div>
         </div>
-        
+
         {scanResult === 'good' && (
           <div className="card" style={{ background: 'var(--primary-light)', borderColor: 'var(--primary)' }}>
             <div className="flex align-center mb-2">
@@ -275,7 +276,7 @@ const TrackGasScreen = () => {
         <div style={{ width: '24px' }}></div>
       </div>
       <div style={{ padding: '40px 24px', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
+
         {/* Circular Progress */}
         <div style={{ position: 'relative', width: '200px', height: '200px', marginBottom: '40px' }}>
           <svg viewBox="0 0 100 100" style={{ transform: 'rotate(-90deg)', width: '100%', height: '100%' }}>
@@ -307,7 +308,7 @@ const TrackGasScreen = () => {
 const FertilizerScreen = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(null);
-  
+
   // Auto pricing states
   const [productType, setProductType] = useState('سماد');
   const [qty, setQty] = useState('');
@@ -358,9 +359,9 @@ const FertilizerScreen = () => {
             <div className="card" style={{ animation: 'fadeIn 0.2s' }}>
               <h3 className="mb-2">استخدامات للنباتات:</h3>
               <div className="flex justify-between mt-4">
-                <div className="text-center"><div style={{fontSize:'24px', marginBottom:'4px'}}>🥕</div><span style={{fontSize:'12px'}}>خضروات</span></div>
-                <div className="text-center"><div style={{fontSize:'24px', marginBottom:'4px'}}>🍎</div><span style={{fontSize:'12px'}}>فاكهة</span></div>
-                <div className="text-center"><div style={{fontSize:'24px', marginBottom:'4px'}}>🌸</div><span style={{fontSize:'12px'}}>أزهار</span></div>
+                <div className="text-center"><div style={{ fontSize: '24px', marginBottom: '4px' }}>🥕</div><span style={{ fontSize: '12px' }}>خضروات</span></div>
+                <div className="text-center"><div style={{ fontSize: '24px', marginBottom: '4px' }}>🍎</div><span style={{ fontSize: '12px' }}>فاكهة</span></div>
+                <div className="text-center"><div style={{ fontSize: '24px', marginBottom: '4px' }}>🌸</div><span style={{ fontSize: '12px' }}>أزهار</span></div>
               </div>
             </div>
           )}
@@ -431,7 +432,7 @@ const MarketScreen = () => {
           <h2 style={{ fontSize: '24px', margin: 0 }}>السوق</h2>
           <button className="btn btn-outline" style={{ padding: '8px 16px', width: 'auto', fontSize: '14px' }}>بيع منتجك</button>
         </div>
-        
+
         <div className="grid-2">
           {/* Item 1 */}
           <div className="card" style={{ padding: '12px' }}>
@@ -489,7 +490,7 @@ const PointsScreen = () => {
     <Layout>
       <div className="page-container" style={{ padding: '24px' }}>
         <h2 className="screen-title" style={{ textAlign: 'right', marginBottom: '24px' }}>النقاط (Eco Points)</h2>
-        
+
         <div className="card flex align-center justify-between" style={{ background: 'var(--primary)', color: 'white', padding: '32px 24px', borderRadius: '24px' }}>
           <div>
             <p style={{ opacity: 0.9, marginBottom: '8px' }}>إجمالي النقاط</p>
@@ -519,6 +520,15 @@ const PointsScreen = () => {
             <p className="text-muted" style={{ margin: 0, fontSize: '14px' }}>كل كجم سماد = 20 نقطة</p>
           </div>
         </div>
+        <div className="card flex align-center mb-4">
+          <div style={{ background: '#E0F2FE', padding: '12px', borderRadius: '12px', marginLeft: '16px' }}>
+            <Flame color="#0ea5e9" />
+          </div>
+          <div>
+            <h4 style={{ margin: '0 0 4px 0' }}>إنتاج غاز حيوي</h4>
+            <p className="text-muted" style={{ margin: 0, fontSize: '14px' }}>٥ نقاط لكل 0.1 م³</p>
+          </div>
+        </div>
 
         <h3 className="mt-4 mb-4">كيف تستخدمها؟</h3>
         <div className="card">
@@ -538,7 +548,7 @@ const InstructionsScreen = () => {
     <Layout>
       <div className="page-container" style={{ padding: '24px' }}>
         <h2 className="screen-title" style={{ textAlign: 'right', marginBottom: '24px' }}>التعليمات ودليل الاستخدام</h2>
-        
+
         <div style={{ marginBottom: '24px', borderRadius: '16px', overflow: 'hidden', height: '150px' }}>
           <img src={wasteImg} alt="مخلفات" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
@@ -569,7 +579,7 @@ const InstructionsScreen = () => {
           <h3 className="mb-4">خطوات التشغيل:</h3>
           <ol style={{ paddingRight: '20px', lineHeight: '2', fontWeight: '600' }}>
             <li>أضف المخلفات</li>
-            <li>أضف ماء (1–2 كوب لكل 2–3 كجم)</li>
+            <li>أضف ماء (1–0.5 لتر لكل 2–3 كجم)</li>
             <li>أضف biostarter</li>
             <li>اضغط Start</li>
             <li>تابع العملية داخل التطبيق</li>
@@ -577,7 +587,7 @@ const InstructionsScreen = () => {
         </div>
 
         <div className="card" style={{ borderLeft: '4px solid var(--warning)', background: '#FEF3C7' }}>
-          <h3 className="mb-2 text-warning flex align-center"><Flame size={20} style={{ marginLeft: '8px' }}/> تعليمات الأمان</h3>
+          <h3 className="mb-2 text-warning flex align-center"><Flame size={20} style={{ marginLeft: '8px' }} /> تعليمات الأمان</h3>
           <ul style={{ paddingRight: '20px', lineHeight: '1.8', fontSize: '14px' }}>
             <li>لا تلمس الجهاز أثناء التشغيل (حرارة عالية).</li>
             <li>تأكد من الغلق الجيد لمنع تسرب الغاز.</li>
